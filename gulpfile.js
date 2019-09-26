@@ -12,6 +12,7 @@ function js(){
             resolve:{
                 extensions:['.ts','.js','.json']
             },
+            devtool:'source-map',
             module:{
                 rules:[
                     {
@@ -26,6 +27,12 @@ function js(){
         .pipe(dest('./dist'))
 }
 
-exports.js = js;
+function html(){
+    return src('./public/index.html')
+        .pipe(dest('./dist'))
+}
 
-exports.default = parallel(js);
+exports.js = js;
+exports.html = html;
+
+exports.default = parallel(js,html);
