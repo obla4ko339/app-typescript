@@ -1,35 +1,37 @@
-import {data, Iuser} from './data'
+import * as C from '../Constants'
 
+export interface IPost{
+    id:number,
+    title:string,
+    body:string,
+    userId:number
+}
 
 class Service{
 
-    private users:Iuser[];
+     url:string = "https://jsonplaceholder.typicode.com/";
 
-    // readonly users:Iuser[]
-
-    constructor(users:Iuser[]){
-        this.users = [...users];
+    fetchAll(renderData:Function, container:HTMLUListElement):void{
+        C.statusBar.innerText = "Down..."
+        fetch(`${this.url}posts`, {
+            method:"get"
+           
+        })
+        .then((response)=>{
+            return response.json()
+        })
+        .then((data)=>{
+            C.statusBar.innerText=""
+            renderData(data,container)
+        })
+        
     }
 
-    get getUsers(){
-        return [...this.users]
-    }
+    fetchOne(): IPost{
 
-    addUser(user:Iuser):Iuser[]{
-        this.users.push(user)
-        return [...this.users];
+        return null
     }
-
-    removeUser(id:number):Iuser[]{
-        this.users.splice(id,1);
-        return [...this.users]
-    }
-
-    changeUser(user:Iuser, id:number):Iuser[]{
-        this.users[id] = user
-        return [...this.users]
-    }
-
 }
 
-export default new Service(data);
+
+export default new Service()

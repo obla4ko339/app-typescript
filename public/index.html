@@ -7,24 +7,20 @@
     <title>TypeScript</title>
 </head>
 <body>
-
-    <div class="admin">
-        <div class="admin__table" id="table">
-            
-        </div>
-        <div class="admin__form">
-            <form>
-                <div><input type="text" name="" id="input-name" placeholder="Name"></div>
-                <div><input type="text" name="" id="input-lastname" placeholder="Lastname"></div>
-                <div><input type="email" name="" id="input-email" placeholder="Email"></div>
-                <div><input type="text" name="" id="input-phone" placeholder="Phone"></div>
-                <div><input type="number" name="" id="input-age" placeholder="Age"></div>
-                <div><input type="text" name="" id="input-work" placeholder="Work"></div>
-                <div><input type="text" name="" id="input-hobby" placeholder="Hobby"></div>
-                <div><input type="button" value="Add Value" id="btn-add"></div>
-            </form>
-        </div>
+    <div>
+        <form>
+            <div>
+                <input type="text" id="input-search" placeholder="query">
+            </div>
+            <div>
+                <input type="button" value="fetch" id="btn-search">
+            </div>
+        </form>
+        <span id="status-bar"></span>
     </div>
+  <div>
+      <ul id="dataList"></ul>
+  </div>
    
 </body>
 <script src="./static/js/bundle.js"></script>
